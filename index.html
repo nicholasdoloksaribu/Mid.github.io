@@ -4,36 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Input gambar</title>
+    <title>Jam Digital</title>
     <style>
-      img {
-        width: 200px;
-        height: 200px;
+      body {
+        background-color: black;
+        color: white;
       }
-      div {
+      #jam {
+        text-align: center;
+        font-size: 100px;
         position: absolute;
-        left: 40%;
+        top: 40%;
+        left: 35%;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 100px;
       }
     </style>
   </head>
   <body>
-    <div>
-      <img src="download.jpg" alt="photo_profil" />
-      <br />
-      <input type="file" name="" id="gambar" />
-      <p>Masukkan gambar anda</p>
-    </div>
-
+    <h1>Sekarang Jam</h1>
+    <div id="jam"></div>
     <script>
-      let img = document.querySelector("img");
-      let input = document.getElementById("gambar");
-
-      input.onchange = (e) => {
-        if (input.files[0]) {
-          img.src = URL.createObjectURL(input.files[0]);
-        }
-      };
+      setInterval(() => {
+        const waktu = new Date();
+        const jam = waktu.getHours();
+        const menit = waktu.getMinutes();
+        const detik = waktu.getSeconds();
+        document.getElementById("jam").innerHTML =
+          jam + ":" + menit + ":" + detik;
+      }, 1000);
     </script>
   </body>
 </html>
-
