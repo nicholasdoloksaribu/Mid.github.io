@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input gambar</title>
+    <style>
+      img {
+        width: 200px;
+        height: 200px;
+      }
+      div {
+        position: absolute;
+        left: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="download.jpg" alt="photo_profil" />
+      <br />
+      <input type="file" name="" id="gambar" />
+      <p>Masukkan gambar anda</p>
+    </div>
+
+    <script>
+      let img = document.querySelector("img");
+      let input = document.getElementById("gambar");
+
+      input.onchange = (e) => {
+        if (input.files[0]) {
+          img.src = URL.createObjectURL(input.files[0]);
+        }
+      };
+    </script>
+  </body>
+</html>
 
